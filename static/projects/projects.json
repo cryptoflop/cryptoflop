@@ -1,0 +1,97 @@
+[
+	{
+		"title": "MagicPixels",
+		"links": {
+			"web": "https://mgcpxls.eth.link/",
+			"git": "https://github.com/cryptoflop/magic-pixels"
+		},
+		"desc": "A nether full of magic pixels - NFT and gamble platform. Gamble for pixels and create pixel art.",
+		"images": [
+			{
+				"size": 312,
+				"offx": -102,
+				"offy": -62
+			},
+			{
+				"size": 246,
+				"offx": -70,
+				"offy": -42
+			},
+			{
+				"size": 244,
+				"offx": -68,
+				"offy": -56
+			}
+		]
+	},
+	{
+		"title": "Frenverse",
+		"links": {
+			"git": "https://github.com/NeverGibUpFren/frenverse/"
+		},
+		"desc": "A world for all frens - Metaverse and safespace.",
+		"images": [
+			{
+				"size": 120,
+				"offx": 0,
+				"offy": 0
+			},
+			{
+				"size": 108,
+				"offx": 0,
+				"offy": -18
+			},
+			{
+				"size": 124,
+				"offx": -20,
+				"offy": 80
+			}
+		]
+	},
+	{
+		"title": "NeverGibUpFren",
+		"links": {
+			"web": "https://nevergibupfren.eth.link/"
+		},
+		"desc": "A token for all frens - Memecoin focused on spreading positivity and fostering solidarity.",
+		"images": [
+			{
+				"size": 297,
+				"offx": -95,
+				"offy": -60
+			},
+			{
+				"size": 170,
+				"offx": -32,
+				"offy": -108
+			},
+			{
+				"size": 144,
+				"offx": -20,
+				"offy": 80
+			}
+		]
+	},
+	{
+		"title": "Ethereon",
+		"links": {},
+		"desc": "Gather gas from the nether - NFT dApp, gambling to get rare gases.",
+		"images": [
+			{
+				"size": 110,
+				"offx": -2,
+				"offy": -10
+			},
+			{
+				"size": 100,
+				"offx": -6,
+				"offy": -100
+			},
+			{
+				"size": 110,
+				"offx": -2,
+				"offy": -20
+			}
+		]
+	}
+]

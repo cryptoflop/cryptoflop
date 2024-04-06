@@ -1,159 +1,26 @@
 <script lang="ts">
-	import x from "./assets/images/x.webp";
-	import github from "./assets/images/gh.webp";
-	import discord from "./assets/images/dc.webp";
-	import telegram from "./assets/images/tg.webp";
-
 	import web from "./assets/images/web.webp";
+	import github from "./assets/images/github.webp";
+	import fetchable from "./fetchable";
 
-	import mp1 from "./assets/images/projects/magic-pixels/mp1.webp";
-	import mp2 from "./assets/images/projects/magic-pixels/mp2.webp";
-	import mp3 from "./assets/images/projects/magic-pixels/mp3.webp";
+	const GH_STATIC_ENDPOINT = "https://cdn.jsdelivr.net/gh/cryptoflop/cryptoflop@main/static"
 
-	import fv1 from "./assets/images/projects/frenverse/1.webp";
-	import fv2 from "./assets/images/projects/frenverse/2.webp";
-	import fv3 from "./assets/images/projects/frenverse/3.webp";
+	let LINKS = [] as { alt: string; url: string; icon: string }[];
 
-	import ng1 from "./assets/images/projects/nguf/ng1.webp";
-	import ng2 from "./assets/images/projects/nguf/ng2.webp";
-	import ng3 from "./assets/images/projects/nguf/ng3.webp";
-
-	import et1 from "./assets/images/projects/ethereon/1.webp";
-	import et2 from "./assets/images/projects/ethereon/2.webp";
-	import et3 from "./assets/images/projects/ethereon/3.webp";
-
-	let LINKS = [
-		{
-			alt: "Github",
-			url: "https://github.com/cryptoflop",
-			icon: github,
-		},
-		{
-			alt: "X",
-			url: "https://twitter.com/cryptoflooop",
-			icon: x,
-		},
-		{
-			alt: "Discord",
-			url: "https://discord.com/users/cryptoflop",
-			icon: discord,
-		},
-		{
-			alt: "Telegram",
-			url: "https://t.me/cryptoflooop",
-			icon: telegram,
-		},
-	];
-
-	const PROJECTS = [
-		{
-			title: "MagicPixels",
+	let PROJECTS = fetchable(
+		GH_STATIC_ENDPOINT + "/projects/projects.json",
+		[] as {
+			title: string;
 			links: {
-				web: "https://mgcpxls.eth.link/",
-				git: "https://github.com/cryptoflop/magic-pixels",
-			},
-			desc: "A nether full of magic pixels - NFT and gamble platform. Gamble for pixels and create pixel art.",
-			images: [
-				{
-					image: mp3,
-					size: 312,
-					offx: -102,
-					offy: -62,
-				},
-				{
-					image: mp1,
-					size: 246,
-					offx: -70,
-					offy: -42,
-				},
-				{
-					image: mp2,
-					size: 244,
-					offx: -68,
-					offy: -56,
-				},
-			],
-		},
-		{
-			title: "Frenverse",
-			links: {
-				git: "https://github.com/NeverGibUpFren/frenverse/",
-			},
-			desc: "A world for all frens - Metaverse and safespace for all frens.",
-			images: [
-				{
-					image: fv1,
-					size: 120,
-					offx: 0,
-					offy: 0,
-				},
-				{
-					image: fv2,
-					size: 108,
-					offx: 0,
-					offy: -18,
-				},
-				{
-					image: fv3,
-					size: 124,
-					offx: -20,
-					offy: 80,
-				},
-			],
-		},
-		{
-			title: "NeverGibUpFren",
-			links: {
-				web: "https://nevergibupfren.eth.link/",
-			},
-			desc: "A token for all frens - Memecoin focused on spreading positivity and fostering solidarity.",
-			images: [
-				{
-					image: ng1,
-					size: 297,
-					offx: -95,
-					offy: -60,
-				},
-				{
-					image: ng2,
-					size: 170,
-					offx: -32,
-					offy: -108,
-				},
-				{
-					image: ng3,
-					size: 144,
-					offx: -20,
-					offy: 80,
-				},
-			],
-		},
-		{
-			title: "Ethereon",
-			links: {},
-			desc: "Gather gas from the nether - NFT dApp, gambling to get rare gases.",
-			images: [
-				{
-					image: et1,
-					size: 110,
-					offx: -2,
-					offy: -10,
-				},
-				{
-					image: et2,
-					size: 100,
-					offx: -6,
-					offy: -100,
-				},
-				{
-					image: et3,
-					size: 110,
-					offx: -2,
-					offy: -20,
-				},
-			],
-		},
-	];
+				web?: string;
+				git?: string;
+			};
+			desc: string;
+			images: { size: number; offx: number; offy: number }[];
+		}[],
+	);
+
+	$: { console.log($PROJECTS) }
 
 	let fullscreenImage: string | undefined;
 </script>
@@ -206,7 +73,7 @@
 	<h2 class="mx-auto text-3xl mt-12 underline">Projects</h2>
 
 	<div class="mx-auto flex flex-col space-y-8 mt-4">
-		{#each PROJECTS as project}
+		{#each $PROJECTS as project}
 			<div class=" min-w-[338px] max-w-[338px]">
 				<div class="flex items-center">
 					<h3 class="text-2xl mr-auto">{project.title}</h3>
