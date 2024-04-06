@@ -9,19 +9,19 @@
 		"path": "mgcpxls",
 		"images": [
 			{
-				"size": 312,
-				"offx": -102,
-				"offy": -62
+				"size": 407,
+				"offx": -148,
+				"offy": -100
 			},
 			{
-				"size": 246,
-				"offx": -70,
-				"offy": -42
+				"size": 171,
+				"offx": -34,
+				"offy": -28
 			},
 			{
-				"size": 244,
-				"offx": -68,
-				"offy": -56
+				"size": 303,
+				"offx": -100,
+				"offy": -79
 			}
 		]
 	},
