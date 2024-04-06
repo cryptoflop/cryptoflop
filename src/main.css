@@ -2,13 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-	font-family: 'FindersKeepers';
-	src: var(--font);
-}
 
 :root {
-	font-family: VT323, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	font-family: "VT323" !important;
 
 	color-scheme: dark;
 	color: white;
