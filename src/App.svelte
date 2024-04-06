@@ -75,7 +75,7 @@
 
 	<h2 class="mx-auto text-3xl mt-12 underline">Projects</h2>
 
-	<div class="mx-auto flex flex-col space-y-8 mt-4">
+	<div class="mx-auto flex flex-col space-y-8 mt-4 mb-24">
 		{#each $PROJECTS as project}
 			<div class="min-w-[338px] max-w-[338px]">
 				<div class="flex items-center">
