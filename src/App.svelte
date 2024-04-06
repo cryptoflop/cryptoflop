@@ -3,9 +3,13 @@
 	import github from "./assets/images/github.webp";
 	import fetchable from "./fetchable";
 
-	const GH_STATIC_ENDPOINT = "https://cdn.jsdelivr.net/gh/cryptoflop/cryptoflop@main/static"
+	const GH_STATIC_ENDPOINT =
+		"https://raw.githack.com/cryptoflop/cryptoflop/main/static";
 
-	let LINKS = [] as { alt: string; url: string; icon: string }[];
+	let LINKS = fetchable(
+		GH_STATIC_ENDPOINT + "/links/links.json",
+		[] as { alt: string; url: string; icon: string }[],
+	);
 
 	let PROJECTS = fetchable(
 		GH_STATIC_ENDPOINT + "/projects/projects.json",
@@ -16,11 +20,10 @@
 				git?: string;
 			};
 			desc: string;
+			path: string;
 			images: { size: number; offx: number; offy: number }[];
 		}[],
 	);
-
-	$: { console.log($PROJECTS) }
 
 	let fullscreenImage: string | undefined;
 </script>
@@ -51,7 +54,7 @@
 	<h2 class="mx-auto text-3xl mt-12 underline">Links</h2>
 
 	<div class="mx-auto mt-2 flex space-x-2">
-		{#each LINKS as link}
+		{#each $LINKS as link}
 			<a
 				href={link.url}
 				target="_blank"
@@ -59,7 +62,7 @@
 				aria-label="Link to {link.alt}"
 			>
 				<img
-					src={link.icon}
+					src={GH_STATIC_ENDPOINT + "/links/" + link.icon + ".webp"}
 					class="h-8 w-8 mx-auto group-hover:scale-105 filter drop-shadow-[0_0_6px_rgba(96,165,250,0.6)] pointer-events-none"
 					alt="{link.alt} logo"
 				/>
@@ -74,7 +77,7 @@
 
 	<div class="mx-auto flex flex-col space-y-8 mt-4">
 		{#each $PROJECTS as project}
-			<div class=" min-w-[338px] max-w-[338px]">
+			<div class="min-w-[338px] max-w-[338px]">
 				<div class="flex items-center">
 					<h3 class="text-2xl mr-auto">{project.title}</h3>
 					{#if project.links.web}
@@ -100,11 +103,14 @@
 					{project.desc}
 				</div>
 				<div class="flex justify-between mt-2">
-					{#each project.images as image}
+					{#each project.images as image, i}
 						<button
-							on:click={() => (fullscreenImage = image.image)}
+							on:click={() =>
+								(fullscreenImage = `${GH_STATIC_ENDPOINT}/projects/${project.path}/${i + 1}.webp`)}
 							class="h-16 w-[6.75rem] rounded-xl overflow-hidden group relative cursor-pointer border-2 border-blue-200/20"
-							style="background-image: url({image.image}); background-size: {image.size}px; background-position-x: {image.offx}px; background-position-y: {image.offy}px;"
+							style="background-image: url({`${GH_STATIC_ENDPOINT}/projects/${project.path}/${i + 1}.webp`}); 
+										 background-size: {image.size}px; background-position-x: {image.offx}px; 
+										 background-position-y: {image.offy}px;"
 						>
 							<div
 								class="group-hover:bg-blue-200/20 absolute inset-0 pointer-events-none"

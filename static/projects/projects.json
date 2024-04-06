@@ -2,7 +2,7 @@
 	{
 		"title": "MagicPixels",
 		"links": {
-			"web": "https://mgcpxls.eth.link/",
+			"web": "https://mgcpxls.eth.limo/",
 			"git": "https://github.com/cryptoflop/magic-pixels"
 		},
 		"desc": "A nether full of magic pixels - NFT and gamble platform. Gamble for pixels and create pixel art.",
@@ -53,7 +53,7 @@
 	{
 		"title": "NeverGibUpFren",
 		"links": {
-			"web": "https://nevergibupfren.eth.link/"
+			"web": "https://nevergibupfren.eth.limo/"
 		},
 		"desc": "A token for all frens - Memecoin focused on spreading positivity and fostering solidarity.",
 		"path": "nguf",
