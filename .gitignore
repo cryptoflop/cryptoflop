@@ -12,6 +12,5 @@ TODO
 .env
 .env.**
 node_modules
-dist
 dist-ssr
 *.local
